@@ -16,7 +16,7 @@ namespace dodawanie
             int FirstNum = 0;
             int SecondNum = 0;
             String con = "";
-            Console.WriteLine("Witamy w dodwaniu");
+            Console.WriteLine("Witamy w dodawaniu");
 
             do
             {
@@ -61,7 +61,7 @@ namespace dodawanie
 
 
                 }
-            } while (con == "wkoncu");
+            } while (con != "wkoncu");
 
 
             do
@@ -78,7 +78,7 @@ namespace dodawanie
 
                     }
                     else
-                        con = "wkoncu";
+                        con = "wkoncu2";
 
                 }
                 catch (FormatException fEx)
@@ -101,12 +101,13 @@ namespace dodawanie
                     Console.WriteLine("Coœ posz³o nie tak");
 
                 }
-            } while (con == "wkoncu");
+            } while (con != "wkoncu2");
 
 
 
             Sum = FirstNum + SecondNum;
             Console.WriteLine("Wynik dodawania to : " + Sum + "");
+            Console.WriteLine("Nacisnij dowolny klawisz aby wyjsc");
             Console.ReadKey();
         }
     }
