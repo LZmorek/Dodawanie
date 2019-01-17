@@ -12,69 +12,142 @@ namespace dodawanie
         {
             int FirstNum;
             int SecondNum;
-            int Sum;
+            int Wynik;
             int Num = 0;
+            int wybor = 0;
             
-            Console.WriteLine("Witamy w dodawaniu");
+            string exit = "";
 
-            Console.WriteLine("Podaj Pierwsza Liczbe 0-10: ");
-            
-            FirstNum =PobierzLiczbe(Num);
+            Console.WriteLine("Witamy w dzialaniach");
 
-            Console.WriteLine("Podaj Druga Liczbe 0-10: ");
+            Console.WriteLine("Podaj Pierwsza Liczbe : ");
 
-            SecondNum = PobierzLiczbe(Num);
-            
-            Sum = FirstNum + SecondNum;
-            Console.WriteLine("Wynik dodawania to : " + Sum + "");
-            Console.WriteLine("Nacisnij dowolny klawisz aby wyjsc");
-            Console.ReadKey();
-        }
-        static int PobierzLiczbe(int Num)
-        {
-            String Number = "";
-            String con = "";
+            FirstNum = PobierzLiczbe(Num);
             do
             {
-                try
+                wybor =Wybordzialania(wybor);
+                switch (wybor)
                 {
+                    case 1:
+                        {
+                            Console.WriteLine("Podaj Druga Liczbe : ");
 
-                    Number = Console.ReadLine();
-                    Num = int.Parse(Number);
+                            SecondNum = PobierzLiczbe(Num);
 
-                    if (Num > 10 || Num < 0)
+                            Wynik = FirstNum + SecondNum;
+                            Console.WriteLine("Wynik dodawania to : " + Wynik + "");
+                            Console.WriteLine("Nacisnij dowolny klawisz aby wyjsc");
+                            Console.ReadKey();
+                            exit = "exit";
+                            break;
+
+                        }
+                    case 2:
+                        {
+                            Console.WriteLine("Podaj Druga Liczbe : ");
+
+                            SecondNum = PobierzLiczbe(Num);
+
+                            Wynik = FirstNum - SecondNum;
+                            Console.WriteLine("Wynik dodawania to : " + Wynik + "");
+                            Console.WriteLine("Nacisnij dowolny klawisz aby wyjsc");
+                            Console.ReadKey();
+                            exit = "exit";
+                            break;
+
+                        }
+                    default:
+                        {
+                            Console.WriteLine("Podano bledny znak/liczbe wybierz ponownie 1 lub 2.");
+                            
+                            break;
+                        }
+                }
+             
+        } while (exit != "exit");
+
+
+        }
+        static int PobierzLiczbe(int Num)
+            {
+                String Number = "";
+                String con = "";
+                do
+                {
+                    try
                     {
-                        Console.WriteLine("nie Poprawana liczba ");
+
+                        Number = Console.ReadLine();
+                        Num = int.Parse(Number);
+                        con = "wkoncu";
+                    }
+                    catch (FormatException fEx)
+                    {
+                        Console.WriteLine(fEx.Message);
                         Console.WriteLine("Wpisz Liczbe Ponownie: ");
                     }
-                    else
-                        con = "wkoncu";
-                }
-                catch (FormatException fEx)
-                {
-                    Console.WriteLine(fEx.Message);
-                    Console.WriteLine("Wpisz Liczbe Ponownie: ");
-                }
-                catch (OverflowException OverEx)
-                {
-                    Console.WriteLine(OverEx.Message);
-                    Console.WriteLine("Wpisz Liczbe Ponownie: ");
-                }
-                catch (ArithmeticException ArgEx)
-                {
-                    Console.WriteLine(ArgEx.Message);
-                    Console.WriteLine("Wpisz Liczbe Ponownie: ");
-                }
-                catch (Exception Ex)
-                {
-                    Console.WriteLine("Coœ posz³o nie tak");
-                    Console.WriteLine("Wpisz Liczbe Ponownie: ");
-                }
-            } while (con != "wkoncu");
-            return Num;
+                    catch (OverflowException OverEx)
+                    {
+                        Console.WriteLine(OverEx.Message);
+                        Console.WriteLine("Wpisz Liczbe Ponownie: ");
+                    }
+                    catch (ArithmeticException ArgEx)
+                    {
+                        Console.WriteLine(ArgEx.Message);
+                        Console.WriteLine("Wpisz Liczbe Ponownie: ");
+                    }
+                    catch (Exception Ex)
+                    {
+                        Console.WriteLine("Coœ posz³o nie tak");
+                        Console.WriteLine("Wpisz Liczbe Ponownie: ");
+                    }
+                } while (con != "wkoncu");
+                return Num;
+        }
+        static int Wybordzialania(int wybor)
+        {
+            
+            string wyborstring = "";
+
+            try
+            {
+                Console.WriteLine("Wybierz operacje wpisujac liczbe: ");
+                Console.WriteLine("1.Dodawanie");
+                Console.WriteLine("2. Odejmowanie");
+                wyborstring = Console.ReadLine();
+                wybor = int.Parse(wyborstring);
+               
+                
+            }
+            catch (FormatException fEx)
+            {
+                Console.WriteLine(fEx.Message);
+                Console.WriteLine("Wpisz Liczbe Ponownie: ");
+            }
+            catch (OverflowException OverEx)
+            {
+                Console.WriteLine(OverEx.Message);
+                Console.WriteLine("Wpisz Liczbe Ponownie: ");
+            }
+            catch (ArithmeticException ArgEx)
+            {
+                Console.WriteLine(ArgEx.Message);
+                Console.WriteLine("Wpisz Liczbe Ponownie: ");
+            }
+            catch (Exception Ex)
+            {
+                Console.WriteLine("Coœ posz³o nie tak");
+                Console.WriteLine("Wpisz Liczbe Ponownie: ");
+            }
+            return wybor;
         }
     }
 }
+
+
+
+
+
         
 
 
