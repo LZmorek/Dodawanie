@@ -18,18 +18,19 @@ namespace dodawanie
             Console.WriteLine("Witamy w dodawaniu");
 
             Console.WriteLine("Podaj Pierwsza Liczbe 0-10: ");
-            Program FirstOne = new Program();      
-            FirstNum = FirstOne.PobierzLiczbe(Num);
-            Console.WriteLine("Podaj Druga Liczbe 0-10: ");
-            Program SecondOne = new Program();
-            SecondNum = SecondOne.PobierzLiczbe(Num);
+            
+            FirstNum =PobierzLiczbe(Num);
 
+            Console.WriteLine("Podaj Druga Liczbe 0-10: ");
+
+            SecondNum = PobierzLiczbe(Num);
+            
             Sum = FirstNum + SecondNum;
             Console.WriteLine("Wynik dodawania to : " + Sum + "");
             Console.WriteLine("Nacisnij dowolny klawisz aby wyjsc");
             Console.ReadKey();
         }
-        public int PobierzLiczbe(int Num)
+        static int PobierzLiczbe(int Num)
         {
             String Number = "";
             String con = "";
