@@ -18,7 +18,6 @@ namespace dodawanie
             string exit = "";
 
             Console.WriteLine("Witamy w dzialaniach");
-
             Console.WriteLine("Podaj Pierwsza Liczbe : ");
 
             FirstNum = PobierzLiczbe(Num);
@@ -31,7 +30,7 @@ namespace dodawanie
                         {
                             Console.WriteLine("Podaj Druga Liczbe : ");
                             SecondNum = PobierzLiczbe(Num);
-                            Program wynik = new Program();
+                            Dzialania wynik = new Dzialania();
                             wynik.Dodawanie(FirstNum, SecondNum);
                             exit = "exit";
                             break;
@@ -40,7 +39,7 @@ namespace dodawanie
                         {
                             Console.WriteLine("Podaj Druga Liczbe : ");
                             SecondNum = PobierzLiczbe(Num);
-                            Program wynik = new Program();
+                            Dzialania wynik = new Dzialania();
                             wynik.Odejmowanie(FirstNum,SecondNum);
                             exit = "exit";
                             break;
@@ -128,27 +127,31 @@ namespace dodawanie
             }
             return wybor;
         }
-        public int Dodawanie(int FirstNum, int SecondNum)
+        class Dzialania
         {
-            int wynik;
-            wynik = FirstNum + SecondNum;
-            Console.WriteLine("Wynik Dodawania to : " + wynik + "");
-            Console.WriteLine("Nacisnij dowolny klawisz aby wyjsc");
-            Console.ReadKey();
-            string exit = "exit";
-            return wynik;
 
-        }
-        public int Odejmowanie(int FirstNum, int SecondNum)
-        {
-            int wynik;
-            wynik = FirstNum - SecondNum;
-            Console.WriteLine("Wynik Odejmowania to : " + wynik + "");
-            Console.WriteLine("Nacisnij dowolny klawisz aby wyjsc");
-            Console.ReadKey();
-            string exit = "exit";
-            return wynik;
+            public int Dodawanie(int FirstNum ,int SecondNum)
+            {
+                int wynik;
+                wynik = FirstNum + SecondNum;
+                Console.WriteLine("Wynik Dodawania to : " + wynik + "");
+                Console.WriteLine("Nacisnij dowolny klawisz aby wyjsc");
+                Console.ReadKey();
+                string exit = "exit";
+                return wynik;
 
+            }
+            public int Odejmowanie(int FirstNum, int SecondNum)
+            {
+                int wynik;
+                wynik = FirstNum - SecondNum;
+                Console.WriteLine("Wynik Odejmowania to : " + wynik + "");
+                Console.WriteLine("Nacisnij dowolny klawisz aby wyjsc");
+                Console.ReadKey();
+                string exit = "exit";
+                return wynik;
+
+            }
         }
     }
 }
