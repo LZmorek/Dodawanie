@@ -11,8 +11,7 @@ namespace dodawanie
         static void Main(string[] args)
         {
             int FirstNum;
-            int SecondNum;
-            int Wynik;
+            int SecondNum;           
             int Num = 0;
             int wybor = 0;
             
@@ -31,41 +30,29 @@ namespace dodawanie
                     case 1:
                         {
                             Console.WriteLine("Podaj Druga Liczbe : ");
-
                             SecondNum = PobierzLiczbe(Num);
-
-                            Wynik = FirstNum + SecondNum;
-                            Console.WriteLine("Wynik dodawania to : " + Wynik + "");
-                            Console.WriteLine("Nacisnij dowolny klawisz aby wyjsc");
-                            Console.ReadKey();
+                            Program wynik = new Program();
+                            wynik.Dodawanie(FirstNum, SecondNum);
                             exit = "exit";
                             break;
-
                         }
                     case 2:
                         {
                             Console.WriteLine("Podaj Druga Liczbe : ");
-
                             SecondNum = PobierzLiczbe(Num);
-
-                            Wynik = FirstNum - SecondNum;
-                            Console.WriteLine("Wynik dodawania to : " + Wynik + "");
-                            Console.WriteLine("Nacisnij dowolny klawisz aby wyjsc");
-                            Console.ReadKey();
+                            Program wynik = new Program();
+                            wynik.Odejmowanie(FirstNum,SecondNum);
                             exit = "exit";
                             break;
-
                         }
                     default:
                         {
-                            Console.WriteLine("Podano bledny znak/liczbe wybierz ponownie 1 lub 2.");
-                            
+                            Console.WriteLine("Podano bledny znak/liczbe wybierz ponownie 1 lub 2."); 
                             break;
                         }
                 }
              
         } while (exit != "exit");
-
 
         }
         static int PobierzLiczbe(int Num)
@@ -140,6 +127,28 @@ namespace dodawanie
                 Console.WriteLine("Wpisz Liczbe Ponownie: ");
             }
             return wybor;
+        }
+        public int Dodawanie(int FirstNum, int SecondNum)
+        {
+            int wynik;
+            wynik = FirstNum + SecondNum;
+            Console.WriteLine("Wynik Dodawania to : " + wynik + "");
+            Console.WriteLine("Nacisnij dowolny klawisz aby wyjsc");
+            Console.ReadKey();
+            string exit = "exit";
+            return wynik;
+
+        }
+        public int Odejmowanie(int FirstNum, int SecondNum)
+        {
+            int wynik;
+            wynik = FirstNum - SecondNum;
+            Console.WriteLine("Wynik Odejmowania to : " + wynik + "");
+            Console.WriteLine("Nacisnij dowolny klawisz aby wyjsc");
+            Console.ReadKey();
+            string exit = "exit";
+            return wynik;
+
         }
     }
 }
